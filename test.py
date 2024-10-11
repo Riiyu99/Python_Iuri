@@ -4,4 +4,8 @@ class FizzBuzzs:
         self.nom = nom 
 
 
+    def affiche(self):
+        pass
+
+
     
