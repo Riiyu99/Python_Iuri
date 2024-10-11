@@ -1,6 +1,6 @@
-class FizzBuzz : 
+class FizzBuzzs: 
 
-    def __init__(self,nom) -> None:
+    def __init__(self,nom):
         self.nom = nom 
 
 
