@@ -4,7 +4,7 @@ class FizzBuzzs:
         self.nom = nom 
 
 
-    def affiche(self, n):
+    def affiche(self, n1, n2):
         result=""
         for i in range(1,n +1):
             if i % 15 == 0:
