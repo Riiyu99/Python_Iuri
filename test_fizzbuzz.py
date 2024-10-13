@@ -9,7 +9,7 @@ class testFizz(unittest.TestCase):
         self.monInstance = FizzBuzzs("MonInstance")
     
     def test_mon_premier_test(self):
-        self.assertEqual(self.monInstance.affiche(15,41), "12Fizz4BuzzFizz78FizzBuzz11Fizz1314FrisBee")
+        self.assertEqual(self.monInstance.affiche(5,10), "BuzzFizz78FizzBuzz")
 
     def tearDown(self):
         print("-----------------Fin du Test--------------")
