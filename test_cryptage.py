@@ -13,6 +13,9 @@ class TestCryptage(unittest.TestCase):
         self.assertEqual(self.monInstance.crypt("123"), "234")
         self.assertEqual(self.monInstance.crypt("! "), '"!')
     
+    def test_cryptage_espace(self):
+        self.assertEqual(self.monInstance.crypt("hello world"), "ifmmp!xpsme")
+        
     def tearDown(self):
         print("-----------------Fin du Test--------------")
 
