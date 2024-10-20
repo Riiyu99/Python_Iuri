@@ -22,6 +22,14 @@ class TestCryptage(unittest.TestCase):
     def test_pas_invalide(self):
         with self.assertRaises(ValueError):
             self.monInstance.crypt("test", 10)
+            
+    def test_decryptage_simple(self):
+        self.assertEqual(self.monInstance.decrypt("bcd1"), "abc")
+        self.assertEqual(self.monInstance.decrypt("BCD1"), "ABC")
+        self.assertEqual(self.monInstance.decrypt("2341"), "123")
+        self.assertEqual(self.monInstance.decrypt('"!1'), "! ")
+
+   
 
     def tearDown(self):
         print("-----------------Fin du Test--------------")
