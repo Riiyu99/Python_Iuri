@@ -6,7 +6,7 @@ class Cryptage:
 
     
     def crypt(self, message, pas):
-        
+        print(f"message: {message}, pas: {pas}")
         if not (1 <= pas <= 9):
             raise ValueError("Le pas doit être un entier entre 1 et 9.")
         
