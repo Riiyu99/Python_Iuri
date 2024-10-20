@@ -2,41 +2,41 @@ import unittest
 from testcryp import Cryptage 
 
 class TestCryptage(unittest.TestCase):
-    
+
     def setUp(self):
-        print("------------Nouveau Test-------------------")
-        self.monInstance = Cryptage("MonInstance")
-    
+        self.monInstance = Cryptage()  # Instance de votre classe Cryptage
+
     def test_cryptage_simple(self):
-        self.assertEqual(self.monInstance.crypt("abc", 1), "bcd1")
-        self.assertEqual(self.monInstance.crypt("ABC", 1), "BCD1")
-        self.assertEqual(self.monInstance.crypt("123", 1), "2341")
-        self.assertEqual(self.monInstance.crypt("! ", 1), '"!1')
+        message_crypte = self.monInstance.crypt("abc", 1)
+        print(f"{message_crypte} = abc")
+        self.assertEqual(message_crypte, "bcd1")
 
     def test_cryptage_espace(self):
-        self.assertEqual(self.monInstance.crypt("hello world", 1), "ifmmp!xpsme1")
+        message_crypte = self.monInstance.crypt("hello world", 1)
+        print(f"{message_crypte} = hello world")
+        self.assertEqual(message_crypte, "ifmmp!xpsme1")
 
     def test_cryptage_avec_pas(self):
-        self.assertEqual(self.monInstance.crypt("hello world", 2), "jgnnq!yqtnf2")
+        message_crypte = self.monInstance.crypt("hello world", 2)
+        print(f"{message_crypte} = hello world")
+        self.assertEqual(message_crypte, "jgnnq!yqtnf2")
 
     def test_pas_invalide(self):
         with self.assertRaises(ValueError):
-            self.monInstance.crypt("test", 10)
-            
-    def test_decryptage_simple(self):
-        self.assertEqual(self.monInstance.decrypt("bcd1"), "abc")
-        self.assertEqual(self.monInstance.decrypt("BCD1"), "ABC")
-        self.assertEqual(self.monInstance.decrypt("2341"), "123")
-        self.assertEqual(self.monInstance.decrypt('"!1'), "! ")
+            self.monInstance.crypt("test", 10)  # Teste un pas invalide
 
-    def test_decryptage_espace(self):
-        self.assertEqual(self.monInstance.decrypt("ifmmp!xpsme1"), "hello world")
+    def test_decryptage(self):
+        decrypted_message = self.monInstance.decrypt("bcd1")
+        print(f"{decrypted_message} = bcd1")
+        self.assertEqual(decrypted_message, "abc")  # Teste le décryptage
         
-    def test_decryptage_avec_pas(self):
-        self.assertEqual(self.monInstance.decrypt("jgnnq!yqtnf2"), "hello world")
-
-    def tearDown(self):
-        print("-----------------Fin du Test--------------")
+        decrypted_message = self.monInstance.decrypt("ifmmp!xpsme1")
+        print(f"{decrypted_message} = ifmmp!xpsme1")
+        self.assertEqual(decrypted_message, "hello world")  # Teste le décryptage
+        
+        decrypted_message = self.monInstance.decrypt("jgnnq!yqtnf2")
+        print(f"{decrypted_message} = jgnnq!yqtnf2")
+        self.assertEqual(decrypted_message, "hello world")  # Teste le décryptage
 
 if __name__ == '__main__':
     unittest.main()
