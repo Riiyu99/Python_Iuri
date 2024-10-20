@@ -31,6 +31,9 @@ class TestCryptage(unittest.TestCase):
 
     def test_decryptage_espace(self):
         self.assertEqual(self.monInstance.decrypt("ifmmp!xpsme1"), "hello world")
+        
+    def test_decryptage_avec_pas(self):
+        self.assertEqual(self.monInstance.decrypt("jgnnq!yqtnf2"), "hello world")
 
     def tearDown(self):
         print("-----------------Fin du Test--------------")
